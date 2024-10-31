@@ -1,0 +1,13 @@
+{
+  "account": {
+    "email": "mohammad_instructorXXXX@tekschool.us",
+    "firstName": "Mohammad",
+    "lastName": "Shokriyan",
+    "title": "Mr.",
+    "gender": "MALE",
+    "maritalStatus": "Single",
+    "employmentStatus": "Software Developer",
+    "dateOfBirth": "1985-02-27"
+  },
+  "tokenGenerationFeature": "classpath:features/tokens/GenerateSupervisorToken.feature"
+}

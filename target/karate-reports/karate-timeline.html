@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-1-thread-3","id":1},{"content":"pool-1-thread-4","id":2},{"content":"pool-1-thread-2","id":3},{"content":"pool-1-thread-5","id":4},{"content":"pool-1-thread-1","id":5}];
+var items = [{"id":1,"group":1,"content":"features\/accounts\/Account[1:13]","start":1730328490679,"end":1730328492291,"title":"features\/accounts\/Account[1:13] 18:48:10.679-18:48:12.291 Testing \/api\/accounts\/get-account with valid accountId"},{"id":2,"group":2,"content":"features\/accounts\/Account[2:21]","start":1730328490679,"end":1730328492265,"title":"features\/accounts\/Account[2:21] 18:48:10.679-18:48:12.265 Testing \/api\/accounts\/get-account with non-existing accountId"},{"id":3,"group":3,"content":"features\/accounts\/CreateAccount[1:18]","start":1730328492138,"end":1730328493333,"title":"features\/accounts\/CreateAccount[1:18] 18:48:12.138-18:48:13.333 Create new account"},{"id":4,"group":4,"content":"features\/accounts\/CreateAccountWithRandomEmail[1:16]","start":1730328492252,"end":1730328492709,"title":"features\/accounts\/CreateAccountWithRandomEmail[1:16] 18:48:12.252-18:48:12.709 Create Account using Java and random email"},{"id":5,"group":2,"content":"features\/accounts\/CreateAndDeleteAccount[1:10]","start":1730328492269,"end":1730328494158,"title":"features\/accounts\/CreateAndDeleteAccount[1:10] 18:48:12.269-18:48:14.158 Successfully create, retrieve, and delete an account"},{"id":6,"group":1,"content":"features\/accounts\/DeleteAccount[1:14]","start":1730328492296,"end":1730328496138,"title":"features\/accounts\/DeleteAccount[1:14] 18:48:12.296-18:48:16.138 Attempt account deletion with different user roles"},{"id":7,"group":4,"content":"features\/accounts\/GetAccounts[1:9]","start":1730328490679,"end":1730328492248,"title":"features\/accounts\/GetAccounts[1:9] 18:48:10.679-18:48:12.248 Validate unauthorized \/api\/accounts\/get-all-accounts request"},{"id":8,"group":5,"content":"features\/accounts\/GetAccounts[2:16]","start":1730328492000,"end":1730328493108,"title":"features\/accounts\/GetAccounts[2:16] 18:48:12.000-18:48:13.108 Validate authorized \/api\/accounts\/get-all-accounts request"},{"id":9,"group":4,"content":"features\/plans\/PlanCode[1:11]","start":1730328492713,"end":1730328498275,"title":"features\/plans\/PlanCode[1:11] 18:48:12.713-18:48:18.275 Testing endpoint \/api\/plans\/get-all-plan-code"},{"id":10,"group":5,"content":"features\/plans\/PlanCode[2:20]","start":1730328493112,"end":1730328498450,"title":"features\/plans\/PlanCode[2:20] 18:48:13.112-18:48:18.450 Testing endpoint \/api\/plans\/get-all-plan-code"},{"id":11,"group":3,"content":"features\/security\/SecurityTest[1:10]","start":1730328493336,"end":1730328494576,"title":"features\/security\/SecurityTest[1:10] 18:48:13.336-18:48:14.576 Valid token with valid credentials"},{"id":12,"group":2,"content":"features\/security\/SecurityTest[2.1:39]","start":1730328494161,"end":1730328494405,"title":"features\/security\/SecurityTest[2.1:39] 18:48:14.161-18:48:14.405 Valid token with invalid credentials"},{"id":13,"group":2,"content":"features\/security\/SecurityTest[2.2:40]","start":1730328494409,"end":1730328496245,"title":"features\/security\/SecurityTest[2.2:40] 18:48:14.409-18:48:16.245 Valid token with invalid credentials"},{"id":14,"group":5,"content":"features\/tokens\/GenerateOperatorToken[1:13]","start":1730328490679,"end":1730328491996,"title":"features\/tokens\/GenerateOperatorToken[1:13] 18:48:10.679-18:48:11.996 Generate valid token for operator"},{"id":15,"group":3,"content":"features\/tokens\/GenerateSupervisorToken[1:14]","start":1730328490679,"end":1730328492134,"title":"features\/tokens\/GenerateSupervisorToken[1:14] 18:48:10.679-18:48:12.134 Generate valid token for supervisor"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
